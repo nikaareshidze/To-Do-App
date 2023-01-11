@@ -5,12 +5,15 @@ import { toDoListActions } from "../../store/toDoListSlice";
 import { addTaskFormVisibleActions } from "../../store/addTaskFormVisible";
 
 export default function AddTaskForm() {
-  const { toDoList } = useSelector((state) => state.toDoListSlice);
+  const { toDoList, id } = useSelector((state) => state.toDoListSlice);
   const { isVisible } = useSelector((state) => state.addTaskFormVisibleSlice);
 
   const dispatch = useDispatch();
   const setToDoList = (payload) => {
     dispatch(toDoListActions.setToDoList(payload));
+  };
+  const increaseId = () => {
+    dispatch(toDoListActions.increaseId());
   };
   const setIsVisible = () => {
     dispatch(addTaskFormVisibleActions.setIsVisible());
@@ -18,12 +21,14 @@ export default function AddTaskForm() {
 
   const { register, handleSubmit, resetField } = useForm();
   const onSubmit = (data) => {
+    data.id = id;
     setToDoList(data);
     resetField("title");
     resetField("status", { defaultValue: "Not Started" });
     resetField("deadline");
     resetField("description");
     setIsVisible();
+    increaseId();
   };
 
   console.log(toDoList);

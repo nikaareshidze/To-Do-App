@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const toDoListInitialState = {
   toDoList: [],
+  id: 0,
 };
 
 const toDoListSlice = createSlice({
@@ -10,6 +11,14 @@ const toDoListSlice = createSlice({
   reducers: {
     setToDoList(state, actions) {
       state.toDoList = [...state.toDoList, actions.payload];
+    },
+    deleteFromToDoList(state, actions) {
+      state.toDoList = state.toDoList.filter((item) => {
+        return item.id !== actions.payload;
+      });
+    },
+    increaseId(state) {
+      state.id = state.id + 1;
     },
   },
 });
