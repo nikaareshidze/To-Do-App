@@ -1,8 +1,26 @@
 import { useForm } from "react-hook-form";
 
+import { useSelector, useDispatch } from "react-redux";
+import { toDoListActions } from "../../store/toDoListSlice";
+
 export default function AddTaskForm() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { toDoList } = useSelector((state) => state.toDoListSlice);
+
+  const dispatch = useDispatch();
+  const setToDoList = (payload) => {
+    dispatch(toDoListActions.setToDoList(payload));
+  };
+
+  const { register, handleSubmit, resetField } = useForm();
+  const onSubmit = (data) => {
+    setToDoList(data);
+    resetField("title");
+    resetField("status");
+    resetField("deadline");
+    resetField("description");
+  };
+
+  console.log(toDoList);
 
   return (
     <form

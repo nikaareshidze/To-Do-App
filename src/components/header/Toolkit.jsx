@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export default function Toolkit() {
-  const { isDark } = useSelector((state) => state.toDoListSlice);
+  const { isDark } = useSelector((state) => state.darkModeSlice);
 
   return (
     <div className="flex gap-x-4">
