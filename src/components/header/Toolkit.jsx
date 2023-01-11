@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 export default function Toolkit() {
-  const [isDark, setIsDark] = useState(false);
+  const { isDark } = useSelector((state) => state.toDoListSlice);
+
   return (
     <div className="flex gap-x-4">
       {isDark ? (
@@ -9,7 +11,7 @@ export default function Toolkit() {
       ) : (
         <span class="material-symbols-outlined">light_mode</span>
       )}
-      <span class="material-symbols-outlined">notifications</span>{" "}
+      <span class="material-symbols-outlined">notifications</span>
     </div>
   );
 }
