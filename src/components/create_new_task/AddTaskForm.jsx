@@ -15,7 +15,7 @@ export default function AddTaskForm() {
   const onSubmit = (data) => {
     setToDoList(data);
     resetField("title");
-    resetField("status");
+    resetField("status", { defaultValue: "Not Started" });
     resetField("deadline");
     resetField("description");
   };
