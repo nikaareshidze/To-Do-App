@@ -40,7 +40,8 @@ export default function Task({ task }) {
       <h1 className="my-4">{task.description}</h1>
       <div className="flex justify-between items-center">
         <h1>
-          Deadline: <span className="underline">{task.deadline}</span>
+          {task.deadline && "Deadline: "}
+          <span className="underline">{task.deadline}</span>
         </h1>
         {task.status == "Done" ? (
           <h1 className="font-light text-green-700 text-sm">{task.status}</h1>

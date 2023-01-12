@@ -19,7 +19,12 @@ export default function AddTaskForm() {
     dispatch(addTaskFormVisibleActions.setIsVisible());
   };
 
-  const { register, handleSubmit, resetField } = useForm();
+  const {
+    register,
+    handleSubmit,
+    resetField,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
     data.id = id;
     setToDoList(data);
@@ -43,8 +48,11 @@ export default function AddTaskForm() {
           <input
             placeholder="Project Name"
             className="bg-transparent text-black font-bold placeholder:text-black italic underline"
-            {...register("title")}
+            {...register("title", { required: true })}
           />
+          {errors.title && (
+            <span className="text-red-800 text-xs">This field is required</span>
+          )}
 
           <div className="flex">
             <h1 className="w-48">Status</h1>
