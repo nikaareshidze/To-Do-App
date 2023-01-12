@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const toDoListInitialState = {
   toDoList: [],
   id: 0,
+  filterRender: "All",
 };
 
 const toDoListSlice = createSlice({
@@ -19,6 +20,9 @@ const toDoListSlice = createSlice({
     },
     increaseId(state) {
       state.id = state.id + 1;
+    },
+    setFilterRender(state, actions) {
+      state.filterRender = actions.payload;
     },
   },
 });
