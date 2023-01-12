@@ -36,8 +36,6 @@ export default function AddTaskForm() {
     increaseId();
   };
 
-  console.log(toDoList);
-
   return (
     <>
       {isVisible ? (

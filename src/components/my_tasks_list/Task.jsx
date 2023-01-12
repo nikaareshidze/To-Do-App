@@ -10,10 +10,14 @@ export default function Task({ task }) {
   const deleteFromToDoList = (payload) => {
     dispatch(toDoListActions.deleteFromToDoList(payload));
   };
+  const setFilterRender = (payload) => {
+    dispatch(toDoListActions.setFilterRender(payload));
+  };
 
   const deleteItem = (e) => {
     e.preventDefault();
     deleteFromToDoList(task.id);
+    setFilterRender("All");
   };
 
   return (

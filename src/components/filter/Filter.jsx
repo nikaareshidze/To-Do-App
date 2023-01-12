@@ -8,7 +8,9 @@ export default function Filter() {
     dispatch(toDoListActions.setFilterRender(payload));
   };
 
-  const { filterRender } = useSelector((state) => state.toDoListSlice);
+  const { toDoList, filterRender } = useSelector(
+    (state) => state.toDoListSlice
+  );
 
   return (
     <div className="flex gap-x-8">
@@ -25,7 +27,9 @@ export default function Filter() {
         </h1>
       )}
 
-      {filterRender == "In Progress" ? (
+      {toDoList.filter((x) => x.status == "In Progress").length == 0 ? (
+        <h1>In Progress</h1>
+      ) : filterRender == "In Progress" ? (
         <h1
           className="cursor-pointer font-bold"
           onClick={() => setFilterRender("In Progress")}
@@ -41,7 +45,9 @@ export default function Filter() {
         </h1>
       )}
 
-      {filterRender == "Plan" ? (
+      {toDoList.filter((x) => x.status == "Plan").length == 0 ? (
+        <h1>Plan</h1>
+      ) : filterRender == "Plan" ? (
         <h1
           className="cursor-pointer font-bold"
           onClick={() => setFilterRender("Plan")}
@@ -54,7 +60,9 @@ export default function Filter() {
         </h1>
       )}
 
-      {filterRender == "Done" ? (
+      {toDoList.filter((x) => x.status == "Done").length == 0 ? (
+        <h1>Done</h1>
+      ) : filterRender == "Done" ? (
         <h1
           className="cursor-pointer font-bold"
           onClick={() => setFilterRender("Done")}
@@ -67,7 +75,9 @@ export default function Filter() {
         </h1>
       )}
 
-      {filterRender == "Not Started" ? (
+      {toDoList.filter((x) => x.status == "Not Started").length == 0 ? (
+        <h1>Not Started</h1>
+      ) : filterRender == "Not Started" ? (
         <h1
           className="cursor-pointer font-bold"
           onClick={() => setFilterRender("Not Started")}
