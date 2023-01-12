@@ -26,7 +26,17 @@ export default function Task({ task }) {
         setIsDeleteButtonShown(false);
       }}
     >
-      <h1 className="font-bold text-lg">{task.title}</h1>
+      <div className="flex icfirst-letter: justify-between">
+        <h1 className="font-bold text-lg">{task.title}</h1>
+        {isDeleteButtonShown && (
+          <span
+            className="material-symbols-outlined cursor-pointer"
+            onClick={deleteItem}
+          >
+            delete
+          </span>
+        )}
+      </div>
       <h1 className="my-4">{task.description}</h1>
       <div className="flex justify-between items-center">
         <h1>
@@ -44,14 +54,6 @@ export default function Task({ task }) {
           ""
         )}
       </div>
-      {isDeleteButtonShown && (
-        <h1
-          className="mt-4 text-red-900 underline cursor-pointer"
-          onClick={deleteItem}
-        >
-          Delete
-        </h1>
-      )}
     </div>
   );
 }
