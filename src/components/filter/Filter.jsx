@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toDoListActions } from "../../store/toDoListSlice";
 
+import FilterTitle from "./FilterTitle";
+
 export default function Filter() {
   const dispatch = useDispatch();
   const setFilterRender = (payload) => {
@@ -15,82 +17,41 @@ export default function Filter() {
   return (
     <div className="flex gap-x-8">
       {filterRender == "All" ? (
-        <h1
-          className="cursor-pointer font-bold"
-          onClick={() => setFilterRender("All")}
-        >
-          All
-        </h1>
+        <FilterTitle title="All" font="font-bold" />
       ) : (
-        <h1 className="cursor-pointer" onClick={() => setFilterRender("All")}>
-          All
-        </h1>
+        <FilterTitle title="All" />
       )}
 
       {toDoList.filter((x) => x.status == "In Progress").length == 0 ? (
         <h1>In Progress</h1>
       ) : filterRender == "In Progress" ? (
-        <h1
-          className="cursor-pointer font-bold"
-          onClick={() => setFilterRender("In Progress")}
-        >
-          In Progress
-        </h1>
+        <FilterTitle title="In Progress" font="font-bold" />
       ) : (
-        <h1
-          className="cursor-pointer"
-          onClick={() => setFilterRender("In Progress")}
-        >
-          In Progress
-        </h1>
+        <FilterTitle title="In Progress" />
       )}
 
       {toDoList.filter((x) => x.status == "Plan").length == 0 ? (
         <h1>Plan</h1>
       ) : filterRender == "Plan" ? (
-        <h1
-          className="cursor-pointer font-bold"
-          onClick={() => setFilterRender("Plan")}
-        >
-          Plan
-        </h1>
+        <FilterTitle title="Plan" font="font-bold" />
       ) : (
-        <h1 className="cursor-pointer" onClick={() => setFilterRender("Plan")}>
-          Plan
-        </h1>
+        <FilterTitle title="Plan" />
       )}
 
       {toDoList.filter((x) => x.status == "Done").length == 0 ? (
         <h1>Done</h1>
       ) : filterRender == "Done" ? (
-        <h1
-          className="cursor-pointer font-bold"
-          onClick={() => setFilterRender("Done")}
-        >
-          Done
-        </h1>
+        <FilterTitle title="Done" font="font-bold" />
       ) : (
-        <h1 className="cursor-pointer" onClick={() => setFilterRender("Done")}>
-          Done
-        </h1>
+        <FilterTitle title="Done" />
       )}
 
       {toDoList.filter((x) => x.status == "Not Started").length == 0 ? (
         <h1>Not Started</h1>
       ) : filterRender == "Not Started" ? (
-        <h1
-          className="cursor-pointer font-bold"
-          onClick={() => setFilterRender("Not Started")}
-        >
-          Not Started
-        </h1>
+        <FilterTitle title="Not Started" font="font-bold" />
       ) : (
-        <h1
-          className="cursor-pointer"
-          onClick={() => setFilterRender("Not Started")}
-        >
-          Not Started
-        </h1>
+        <FilterTitle title="Not Started" />
       )}
     </div>
   );
