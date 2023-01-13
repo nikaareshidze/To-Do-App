@@ -9,7 +9,7 @@ export default function FilterComponent({ title }) {
 
   return (
     <>
-      {toDoList.filter((x) => x.status == title).length == 0 ? (
+      {toDoList.filter((task) => task.status == title).length == 0 ? (
         <h1>{title}</h1>
       ) : filterRender == title ? (
         <FilterTitle title={title} font="font-bold" />
