@@ -11,7 +11,9 @@ export default function FilterTitle(props) {
 
   return (
     <h1
-      className={`cursor-pointer ${props.font && props.font}`}
+      className={`cursor-pointer ${props.font && props.font} ${
+        props.textColor
+      }`}
       onClick={() => setFilterRender(`${props.title}`)}
     >
       {props.title}

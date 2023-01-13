@@ -36,6 +36,10 @@ export default function AddTaskForm() {
     increaseId();
   };
 
+  const { isDark } = useSelector((state) => state.darkModeSlice);
+  const textColor = isDark ? "text-white" : "text-black";
+  const bgColor = isDark ? "bg-white" : "bg-black";
+
   return (
     <>
       {isVisible ? (
@@ -45,7 +49,7 @@ export default function AddTaskForm() {
         >
           <input
             placeholder="Project Name"
-            className="bg-transparent text-black font-bold placeholder:text-black italic underline"
+            className={`bg-transparent ${textColor} font-bold placeholder:${textColor} italic underline`}
             {...register("title", { required: true })}
           />
           {errors.title && (
@@ -53,10 +57,10 @@ export default function AddTaskForm() {
           )}
 
           <div className="flex">
-            <h1 className="w-48">Status</h1>
+            <h1 className={`w-48 ${textColor}`}>Status</h1>
             <select
               name="status-option"
-              className="bg-transparent text-black"
+              className={`bg-transparent ${textColor}`}
               {...register("status")}
             >
               <option value="Not Started">Not started</option>
@@ -67,20 +71,20 @@ export default function AddTaskForm() {
           </div>
 
           <div className="flex">
-            <h1 className="w-48">Due Date</h1>
+            <h1 className={`w-48 ${textColor}`}>Due Date</h1>
             <input
               type="date"
               placeholder="Due Date"
-              className="bg-transparent text-black"
+              className={`bg-transparent ${textColor}`}
               {...register("deadline")}
             />
           </div>
 
           <div className="flex">
-            <h1 className="w-48">Description</h1>
+            <h1 className={`w-48 ${textColor}`}>Description</h1>
             <textarea
               placeholder="Add description"
-              className="bg-transparent text-black"
+              className={`bg-transparent ${textColor}`}
               {...register("description")}
             />
           </div>

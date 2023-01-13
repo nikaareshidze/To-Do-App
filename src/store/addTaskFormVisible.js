@@ -5,7 +5,7 @@ const addTaskFormVisibleInitialState = {
 };
 
 const addTaskFormVisibleSlice = createSlice({
-  name: "darkMode",
+  name: "addTaskForm",
   initialState: addTaskFormVisibleInitialState,
   reducers: {
     setIsVisible(state) {
