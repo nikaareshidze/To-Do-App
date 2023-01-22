@@ -10,7 +10,7 @@ export default function MyTasks() {
   );
 
   return (
-    <div className="w-7/12 grid grid-cols-2 grid-flow-row gap-4">
+    <div className="grid grid-flow-row grid-cols-3 gap-4 min-[1099px]:w-7/12 min-[1099px]:grid-cols-2 max-[500px]:grid-cols-1 max-[750px]:grid-cols-2">
       {filterRender == "All" && toDoList.map((task) => <Task task={task} />)}
 
       <MyTask title="Done" />

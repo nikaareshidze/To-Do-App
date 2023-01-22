@@ -15,11 +15,15 @@ function App() {
       <div className="p-10">
         <Header />
         <div className="flex justify-between mb-8">
-          <Filter />
+          <div className="max-[750px]:hidden">
+            <Filter />
+          </div>
           <AddButton />
         </div>
-        <div className="flex justify-between">
-          <MyTasks />
+        <div className="flex min-[1099px]:justify-between max-[1099px]:flex-col-reverse">
+          <div className="w-full max-[1099px]:mt-10">
+            <MyTasks />
+          </div>
           <AddTaskForm />
         </div>
       </div>

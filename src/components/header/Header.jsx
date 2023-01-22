@@ -6,7 +6,9 @@ export default function Header() {
   return (
     <div className="flex justify-between items-center mb-8">
       <Logo />
-      <Search />
+      <div className="max-[750px]:hidden">
+        <Search />
+      </div>
       <Toolkit />
     </div>
   );

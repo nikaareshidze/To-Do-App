@@ -5,7 +5,7 @@ import { toDoListActions } from "../../store/toDoListSlice";
 import { addTaskFormVisibleActions } from "../../store/addTaskFormVisible";
 
 export default function AddTaskForm() {
-  const { toDoList, id } = useSelector((state) => state.toDoListSlice);
+  const { id } = useSelector((state) => state.toDoListSlice);
   const { isVisible } = useSelector((state) => state.addTaskFormVisibleSlice);
 
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ export default function AddTaskForm() {
 
   const { isDark } = useSelector((state) => state.darkModeSlice);
   const textColor = isDark ? "text-white" : "text-black";
-  const bgColor = isDark ? "bg-white" : "bg-black";
+  //const bgColor = isDark ? "bg-white" : "bg-black";
 
   return (
     <>
