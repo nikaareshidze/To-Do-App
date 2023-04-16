@@ -44,7 +44,7 @@ export default function AddTaskForm() {
     <>
       {isVisible ? (
         <form
-          className="flex flex-col gap-y-4 w-fit"
+          className="flex flex-col gap-y-4 w-full md:w-fit"
           onSubmit={handleSubmit(onSubmit)}
         >
           <input
@@ -56,7 +56,7 @@ export default function AddTaskForm() {
             <span className="text-red-800 text-xs">This field is required</span>
           )}
 
-          <div className="flex">
+          <div className="flex justify-between">
             <h1 className={`w-48 ${textColor}`}>Status</h1>
             <select
               name="status-option"
@@ -70,7 +70,7 @@ export default function AddTaskForm() {
             </select>
           </div>
 
-          <div className="flex">
+          <div className="flex justify-between">
             <h1 className={`w-48 ${textColor}`}>Due Date</h1>
             <input
               type="date"
@@ -80,11 +80,11 @@ export default function AddTaskForm() {
             />
           </div>
 
-          <div className="flex">
+          <div className="flex justify-between">
             <h1 className={`w-48 ${textColor}`}>Description</h1>
             <textarea
               placeholder="Add description"
-              className={`bg-transparent ${textColor}`}
+              className={`bg-transparent ${textColor} text-end`}
               {...register("description")}
             />
           </div>

@@ -13,7 +13,7 @@ export default function AddButton() {
 
   return (
     <button
-      className={`inline-block px-6 py-2.5 ${bgColor} ${textColor} font-medium text-xs leading-tight uppercase rounded shadow-md hover:${bgColor} hover:shadow-lg focus:${bgColor} focus:shadow-lg focus:outline-none focus:ring-0 active:${bgColor} active:shadow-lg transition duration-150 ease-in-out`}
+      className={`inline-block px-6 py-2.5 ${bgColor} ${textColor} font-medium text-xs leading-tight uppercase rounded shadow-md hover:${bgColor} hover:shadow-lg focus:${bgColor} focus:shadow-lg focus:outline-none focus:ring-0 active:${bgColor} active:shadow-lg transition duration-150 ease-in-out w-full md:w-fit`}
       onClick={() => {
         setIsVisible();
       }}
